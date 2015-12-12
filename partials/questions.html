@@ -1,0 +1,26 @@
+<h2>What is Your Question?</h2>
+<form ng-submit='QuestionsFactory.addQuestion()' role='form'>
+	<div class='form-group'>
+		<input type='text' ng-model='QuestionsFactory.question' class='form-control' placeholder='Ask a Question'>
+	</div>
+	<button type='submit' class='btn btn-primary'>Submit</button>
+</form>
+
+<div ng-show='questions.length'>
+	<h2>Questions</h2>
+	<div class='col-md-4' ng-repeat='q in questions'>
+		<div class='question-box'>
+			<p>Q: {{q.question}}</p>
+			<div ng-show='q.answers.length'>
+				<div ng-repeat="a in q.answers | orderBy: '-position'">
+					<p>A: {{a.position}} {{a.answer}}</p>
+					<div class='btn-group' role='group'>
+						<button class='btn' ng-click='a.position = a.position + 1'>Upvote</button>
+						<button class='btn' ng-click='a.position = a.position - 1'>Downvote</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a ui-sref='question({questionId: q.id})'><h4>Answer this Question</h4></a>
+	</div>
+</div>

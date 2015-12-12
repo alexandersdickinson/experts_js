@@ -1,0 +1,17 @@
+<h2>Q: {{question.question}}</h2>
+<div ng-show='question.answers.length'>
+	<div ng-repeat="a in question.answers | orderBy: '-position'">
+		<h3>A: {{a.position}} {{a.answer}}</h3>
+		<div class='btn-group' role='group'>
+			<button class='btn' ng-click='a.position = a.position + 1'>Upvote</button>
+			<button class='btn' ng-click='a.position = a.position - 1'>Downvote</button>
+		</div>
+	</div>
+</div>
+
+<form ng-submit='addAnswer()' class='form-inline answer-input' role='form'>
+	<div class='form-group'>
+		<input type='text' ng-model='answer' class='form-control' placeholder='Answer this Question'>
+	</div>
+	<button type='submit' class='btn btn-primary'>Submit</button>
+</form>

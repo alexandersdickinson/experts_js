@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='experts'>
+	<head>
+		<title>Ask the Experts</title>
+		<script src='lib/angular.js'></script>
+		<script src='lib/angular-ui-router.js'></script>
+		<script src='app.js'></script>
+		<script src='controllers/QuestionsController.js'></script>
+		<script src='controllers/AnswersController.js'></script>
+		<script src='services/QuestionsFactory.js'></script>
+		<script src='services/UtilitiesFactory.js'></script>
+		<link href='css/bootstrap.css' rel='stylesheet' type='text/css'>
+		<link href='css/stylesheet.css' rel='stylesheet' type='text/css'>
+	</head>
+	
+	<body>
+		<div class='container-fluid'>
+			<div class='jumbotron'>
+				<h1>Ask an Expert</h1>
+			</div>
+		</div>
+		<div class='container-fluid'>
+			<div ui-view></div>
+		</div>
+	</body>
+</html>
